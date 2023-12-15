@@ -1,37 +1,53 @@
 # Project Planning 
 
+## WIREFRAMING
+
+[https://www.canva.com/](https://www.canva.com/design/DAF24Vo06aw/D_7EHH3YyJ_Zhe1gILqWAA/edit?utm_content=DAF24Vo06aw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
 ## PSUEDOCODE
 
 ### Initialize the game
-Set secretWord to a randomly chosen word from array
-Set maxAttempts to the maximum number of incorrect guesses allowed
-Set attempts to 0
-Set guessedLetters to an empty list
+- Set **guessedLetters** to an empty array
+- Define a list of words to choose from ( **wordList** arr)
+    - Set **secretWord** to a randomly chosen **wordList** from array
+- Set **maxAttempts** to the maximum number of incorrect guesses allowed (12)
+- Set **currentAttemps** to 0
 
 
-### Main game loop
-While attempts < maxAttempts:
-    // Display game information
-    Display the current state of the spaceman
-    Display the secret word with underscores for unguessed letters
-    Display the guessed letters
-    
-    // Get user input
-    Prompt the user to guess a letter
-    Read the user's input
-    
-    // Process the user's guess
-    If the guessed letter is in the secretWord:
-        Add the guessed letter to the guessedLetters list
-        If all letters in the secretWord have been guessed:
-            Display a victory message
-            Break out of the loop
-    Else:
-        Increment attempts by 1
-    
-### Game over
-If attempts equals maxAttempts:
-    Display a defeat message and reveal the secretWord
+
+
+### Begin game play:
+- Initialize game
+- Display the rules of the game, next page
+- Display topic choices and present "START GAME" btn
+- Display the Spaceman graphic
+- Display the current state of **secretWord** with MARGIN BOTTOM on unguessed letters
+- Display the number of attempts left
+
+## Active game play
+
+### Repeat until the game is over:
+1. Ask the player to guess a letter
+2. Check if the letter has already been guessed
+    - If YES, inform the player and continue to next iteration
+    - If NO, add the letter to the list of guessed letters
+        
+3. Check if the guessed letter is in the selected word
+    - If YES, update the current state of the word with the guessed letter(s)
+    - If NO, decrement the number of attempts left and update the hangman graphic
+        
+4. Check if all letters in the word have been guessed correctly
+    - If YES, display a victory message and end the game
+    - If NO, Check if the player has run out of attempts
+        - If YES, display a defeat message and end the game
+        - If NO, return to step 1 and REPEAT
+
+
+### End the game:
+
+- Ask the player if they want to play again
+    - If yes, go back to Initialize the game
+    - If no, exit the program
 
 
 ## HTML/CSS
@@ -45,10 +61,6 @@ Need grid
 
 
 
-## Technical Requirements
-<img src="https://i.imgur.com/QgojyYY.png" width="400">
-
-# Project 1<br>Browser-based Game
 
 ## Overview
 
@@ -65,16 +77,6 @@ As a reminder, GA has a zero plagiarism policy - your project's code **must be s
 ---
 
 ## Planning & Presentation Requirements
-
-### Planning - Due 4:15 (Pacific) Thursday, 12/14/23:
-
-- You will share:
-
-	☐ Your choice of game.
-
-	☐ A wireframe of your "main" game screen.
-
-	☐ Pseudocode for the overall game play.
 
 ### Presentation - Friday Morning, 12/22/23:
 
@@ -149,45 +151,6 @@ You will have 10 minutes to present your project following these guidelines:
   > Note: Don't underestimate the value of a well crafted `README.md`. The `README.md` introduces your project to prospective employers and forms their first impression of your work!
 
 ☐ **Frequent commits (at least 1 every day) dating back to the very beginning of the project**. Never delete you repo to "start over".  Commit messages should be in the present tense, e.g., "Style game board" instead of "Styled game board". **Be sure to create the repo on your personal GitHub account and ensure that it is "public".** 
-
----
-
-## Choose From the Following Games
-
-> Note: Games are listed in approximate order of increasing difficulty.
-
-1. **Spaceman**
-    - A good icebox feature (optional feature) is to allow the player to choose from categories of words.
-1. **Concentration (Memory Game)**
-    - Use "cards" or other theme
-    - Will need to display "wrong" guess until a timer expires or until the next click.
-    - Must lose after a certain amount of time or after X number of bad guesses.
-1. **Simon**
-    - Requires audio
-1. **Mastermind** (Guess the Code)
-1. **Minesweeper**
-    - Must implement "flood" feature
-1. **Slot Machine**
-    - Must implement wagering feature
-1. **Blackjack**
-    - Must implement wagering feature
-    - Do not have to implement splitting hands
-1. **Wordle** (NY Times game)
-1. **Mancala**
-    - Implementing "capturing" is not required
-1. **Video Poker**
-    - Must implement wagering feature
-1. **Craps**
-    - Must implement wagering feature
-1. **Roulette**
-    - Must implement wagering feature
-1. **Solitaire**
-1. **Battleship**
-    - Requires some AI to implement the computer opponent
-
-**Only the above games are approved.  Any deviation, which is extremely discouraged, must receive approval from your instructor before starting your planning (wireframes & pseudocode)!**
-
-> IMPORTANT:  Because it's important to demonstrate your ability to perform DOM manipulation using JavaScript, all games should be DOM-based, not canvas-based.
 
 ---
 
