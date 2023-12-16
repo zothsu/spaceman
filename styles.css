@@ -4,3 +4,12 @@
 *::after {
   box-sizing: border-box;
 }
+body {
+  background: #010334;
+  background-image: url(flyingSaucer.png);
+  color: #fff;
+}
+
+main {
+  height: 90vh;
+}
