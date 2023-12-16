@@ -2,14 +2,31 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  box-sizing: border-box;ß
+  margin: 0;
 }
 body {
   background: #010334;
-  background-image: url(flyingSaucer.png);
   color: #fff;
+  height: 100vh;
+  margin: 0 auto auto auto;
+  background-image: url(flyingSaucer.png);
+  background-size: cover;
+  background-position: top;
 }
 
 main {
-  height: 90vh;
+  font-family: 'Goldman', sans-serif;
+  text-align: center;
+  line-height: 1.5;
+  
+}
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+h1 {
+  text-align: left;
+  margin-left:2em;
+  filter: drop-shadow(2px 4px 1px rgb(160, 0, 210));
 }
