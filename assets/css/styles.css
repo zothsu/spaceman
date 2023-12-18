@@ -40,6 +40,12 @@ h1 {
 main > h1 {
   grid-area: title;
 }
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
 #alphabet {
   grid-area: alphabet;
   background-color: rgba(245, 40, 145, 0.17)
@@ -47,14 +53,20 @@ main > h1 {
 #board {
   grid-area: board;
   background-color: rgba(208, 183, 13, 0.25);
+  display: flex;
+  flex-direction: column;
 }
 #graveyard {
   grid-area: graveyard;
   background-color: rgba(66, 0, 151, 0.25);
 }
 
-
 #spaceman {
+  max-width: 10em;
+  align-items: center;
+}
+
+#message {
   display: flex ;
   align-items: flex-end;
 }
