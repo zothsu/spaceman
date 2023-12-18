@@ -32,7 +32,8 @@ const MAX_TRIES = 12;
 //const WORD_LIST = moved to WORD_LIST.js
 const BLANK_CHAR = " _ "
 const GUESSED_CHAR = " "
-
+let secretWord; 
+let hint;
 
 //initial state of greeting and then spaceman
 const spacemanImg = document.getElementById('spaceman')
@@ -46,14 +47,13 @@ greetingMsg.innerHTML = '<p> Help the spaceman get out of the aliens teleportati
 
 /*----- STATE VARIABLES (DO NOT ASSIGN VALUES TO THEM - that will be done with the init function) -----*/
 let category = 'space'
-
+let guessingWord;
 // guesses left
 
 /*----- CACHED ELEMENTS-----*/
 //select a random word from WORDBANK
 // Will need to replace SPACE with "category" choice from user
-const secretWord = WORD_LIST[category][Math.floor(Math.random() * WORD_LIST[category].length)].word;
-console.log(secretWord)
+
 //guessed letters
 const guessedLetters = [];
 
@@ -62,10 +62,19 @@ const getGuessResultEl = document.getElementById('getGuessResult')
 
 /*----- EVENT LISTENERS -----*/
 
-/*----- functions -----*/
-init()
+/*----- FUNCTIONS -----*/
+init();
+
 
 // Initialize all state, then call render()
 function init() {
     guessesLeft = 6;
-  };
+    secretWord =  WORD_LIST[category][Math.floor(Math.random() * WORD_LIST[category].length)].word;
+    guessingWord = '_'.repeat(secretWord.length);
+
+    render();
+    }
+
+function render() {
+    // stubbed up
+}
