@@ -17,8 +17,8 @@ const WORD_LIST = {
     space: [
         { word: "astronaut", hint: "A person who travels in space" },
         { word: "galaxy", hint: "A system of stars, dust, and gas held together by gravity" },
-        { word: "asteroid", "hint": "A small rocky object that orbits the Sun"},
-        { word: "star", "hint": "A luminous ball of gas that generates energy through nuclear fusion"},
+        { word: "asteroid", hint: "A small rocky object that orbits the Sun"},
+        { word: "star", hint: "A luminous ball of gas that generates energy through nuclear fusion"},
         { word: "rocket", hint: "A vehicle that travels through space" },
         { word: "planet", hint: "A celestial body that orbits a star" },
         { word: "moon", hint: "A natural satellite that orbits a planet" }, 
