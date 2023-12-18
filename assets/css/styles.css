@@ -9,7 +9,7 @@ body {
   background: #010334;
   color: #fff;
   height: 100vh;
-  background-image: url(flyingSaucer.png);
+  background-image: url(/assets/img/flyingSaucer.png);
   background-size: cover;
   background-position: top;
   margin-top: -1em;
@@ -21,7 +21,7 @@ main {
   line-height: 1.5;
   height: 100vh;
   display: grid;
-  grid-template-rows: 5em 1fr 10em;
+  grid-template-rows: 5em 1fr 1fr;
   grid-template-columns: 5em 1fr 5em;
   grid-template-areas:
     "title title ."
@@ -35,7 +35,6 @@ img, svg {
 }
 h1 {
   text-align: left;
-  margin-left:2em;
   filter: drop-shadow(2px 4px 1px rgb(160, 0, 210));
 }
 
