@@ -36,7 +36,7 @@ const GUESSED_CHAR = " "
 
 //initial state of greeting and then spaceman
 const spacemanImg = document.getElementById('spaceman')
-spacemanImg.innerHTML = '<img src="" alt="image of astronaught in tractor beam">'
+spacemanImg.innerHTML = '<img src="/assets/img/spaceman-0.jpg" alt="image of astronaught in tractor beam">'
 const greetingMsg = document.getElementById('message')
 greetingMsg.innerHTML = '<p> Help the spaceman get out of the aliens teleportation beam before the aliens beam up his whole body!! Every wrong guess of the word transmits another part of his body. you only have 6 tries before his body is compleatly gone!!</p>'
 
