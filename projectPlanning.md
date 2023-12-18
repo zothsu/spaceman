@@ -14,6 +14,11 @@
 - Set **currentAttemps** to 0
 
 
+
+WHEN THE START BUTTON IS CLICKED 
+    - Render keyboard
+    - Render secretWord _ _ _ _ _ _
+    
 Implement the main game loop: Create a loop that runs until the game ends. Within this loop, prompt the player for their guess, update the game state, and display the current progress.
 
 Create a dictionary of words: Make a list of words to be used as answers in the game. You can choose to store them directly in your code or read them from an external file.

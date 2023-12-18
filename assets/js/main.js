@@ -1,5 +1,5 @@
 /*----- CONSTANTS/ FIXED VALUES, LOOKUP DATA STRUCTURES -----*/
-
+const SPRITE_WIDTH = 504;
 const WORD_LIST = {
   space: [
       { word: "astronaut", hint: "A person who travels in space" },
@@ -29,7 +29,6 @@ const WORD_LIST = {
   };
 
 const MAX_TRIES = 12;
-//const WORD_LIST = moved to WORD_LIST.js
 const BLANK_CHAR = " _ "
 const GUESSED_CHAR = " "
 
@@ -37,7 +36,7 @@ const GUESSED_CHAR = " "
 //initial state of greeting and then spaceman
 const spacemanImg = document.getElementById('spaceman')
 spacemanImg.innerHTML = '<img src="" alt="image of astronaught in tractor beam">'
-const greetingMsg = document.getElementById('spaceman')
+const greetingMsg = document.getElementById('greeting')
 greetingMsg.innerHTML = '<p> Help the spaceman get out of the aliens teleportation beam before the aliens beam up his whole body!! Every wrong guess of the word transmits another part of his body. you only have 6 tries before his body is compleatly gone!!</p>'
 
 
@@ -56,13 +55,26 @@ const secretWord = WORD_LIST[category][Math.floor(Math.random() * WORD_LIST[cate
 console.log(secretWord)
 //guessed letters
 const guessedLetters = [];
+const imgEl = document.querySelector('img')
+
 
 /*----- EVENT LISTENERS -----*/
+document.getElementById('start').addEventListener('click', handleBtnClick);
 
-/*----- functions -----*/
+/*----- FUNCTIONS -----*/
 init()
 
 // Initialize all state, then call render()
 function init() {
     guessesLeft = 6;
+    curFrame = 0
+    render()
+  };
+
+  function render() {
+    imgEl
+  };
+
+  handleBtnClick() {
+    //stubbed
   };
