@@ -12,12 +12,21 @@ body {
   background-image: url(flyingSaucer.png);
   background-size: cover;
   background-position: top;
+  margin-top: -1em;
 }
 
 main {
-  font-family: 'Goldman', sans-serif;
+  font-family: 'Exo 2', sans-serif;
   text-align: center;
   line-height: 1.5;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 5em 1fr 10em;
+  grid-template-columns: 5em 1fr 5em;
+  grid-template-areas:
+    "title title ."
+    "alphabet .  graveyard"
+    "alphabet board graveyard";
   
 }
 img, svg {
@@ -28,4 +37,26 @@ h1 {
   text-align: left;
   margin-left:2em;
   filter: drop-shadow(2px 4px 1px rgb(160, 0, 210));
+}
+
+main > h1 {
+  grid-area: title;
+}
+#alphabet {
+  grid-area: alphabet;
+  background-color: rgba(245, 40, 145, 0.17)
+}
+#board {
+  grid-area: board;
+  background-color: rgba(208, 183, 13, 0.25);
+}
+#graveyard {
+  grid-area: graveyard;
+  background-color: rgba(66, 0, 151, 0.25);
+}
+
+
+#spaceman {
+  display: flex ;
+  align-items: flex-end;
 }
