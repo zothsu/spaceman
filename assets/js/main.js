@@ -1,6 +1,5 @@
 /*----- CONSTANTS/ FIXED VALUES, LOOKUP DATA STRUCTURES -----*/
 
-
 const WORD_LIST = {
   space: [
       { word: "astronaut", hint: "A person who travels in space" },
