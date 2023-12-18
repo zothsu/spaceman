@@ -1,21 +1,8 @@
-/*----- constants -----*/
-//word bank
-const secretWords = [
-  'comets',
-  'planet',
-  'rocket',
-  'nebula',
-  'galaxy',
-  'cosmic',
-  'meteor',
-  'orbital',
-  'cosmos',
-  'saturn',
-  'quasar',
-];
-
-//select a random word from WORDBANK
-const secretWord = secretWords[Math.floor(Math.random() * (words.length +1))];
+/*----- CONSTANTS/ FIXED VALUES, LOOKUP DATA STRUCTURES -----*/
+const MAX_TRIES = 12;
+//const WORD_LIST = 
+const BLANK_CHAR = " _ "
+const GUESSED_CHAR = " "
 
 
 //initial state of greeting and then spaceman
@@ -28,12 +15,15 @@ greetingMsg.innerHTML = '<p> Help the spaceman get out of the aliens teleportati
 
 
 
-/*----- app's state (variables) -----*/
-//guessed words
-const guessedLetters = [];
+/*----- STATE VARIABLES (DO NOT ASSIGN VALUES TO THEM - that will be done with the init function) -----*/
+  //select a random word from WORDBANK
+  const secretWord = secretWords[Math.floor(Math.random() * (words.length +1))];
 
-// guesses left
-const guessesLeft = [];
+  //guessed letters
+  const guessedLetters = [];
+
+  // guesses left
+  let guessesLeft;
 
 /*----- cached element references -----*/
 
@@ -44,5 +34,5 @@ init()
 
 // Initialize all state, then call render()
 function init() {
-    //stubbed up
+    guessesLeft = 6;
   };
