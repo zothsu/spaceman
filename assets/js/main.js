@@ -57,6 +57,9 @@ console.log(secretWord)
 //guessed letters
 const guessedLetters = [];
 
+const getGuessResultEl = document.getElementById('getGuessResult')
+
+
 /*----- EVENT LISTENERS -----*/
 
 /*----- functions -----*/
