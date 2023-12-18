@@ -14,6 +14,19 @@
 - Set **currentAttemps** to 0
 
 
+Implement the main game loop: Create a loop that runs until the game ends. Within this loop, prompt the player for their guess, update the game state, and display the current progress.
+
+Create a dictionary of words: Make a list of words to be used as answers in the game. You can choose to store them directly in your code or read them from an external file.
+
+Randomly select a word: Use a random number generator to select a word from your dictionary for each game session.
+
+Check the player's guess: Compare the player's guess with the selected word, and update the game state accordingly. Keep track of correct and incorrect guesses, as well as the number of attempts remaining.
+
+Display the game progress: Show the player's progress by revealing correctly guessed letters and displaying the Hangman figure corresponding to incorrect guesses.
+
+Determine game end conditions: Decide on the conditions for ending the game, such as correct guessing of the word or running out of attempts. Display an appropriate message indicating whether the player won or lost.
+
+Add replay option: After the game ends, ask the player if they want to play again. If yes, restart the game loop; otherwise, exit the progr
 
 
 ### Begin game play:
@@ -166,10 +179,3 @@ You will have 10 minutes to present your project following these guidelines:
 - Write **DRY (Don't Repeat Yourself)** code. Check for repeating code and refactor into functions that accept arguments.
 
 ---
-
-## Project Feedback + Evaluation
-
-- Your instructors will be using the [Project 1 Code Review](./project-1-code-review.pdf) form to determine whether or not the project passes all of the minimum requirements.
-- Your instructors will endeavor to deliver your code review by EOD Monday following Friday's presentation.
-- If your instructors determine that your project does not meet the above requirements (denoted using checkboxes), you may request to address the deficiencies identified. However, be aware that **there is only a single opportunity to resubmit a project during the course**.
-- If there is a specific section of code that you would like an instructor to provide additional feedback, please ask!
