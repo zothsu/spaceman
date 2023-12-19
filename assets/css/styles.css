@@ -34,7 +34,10 @@ img, svg {
 }
 h1 {
   text-align: left;
+  font-size: 4rem;
   filter: drop-shadow(2px 4px 1px rgb(160, 0, 210));
+  padding-left: .5em;
+  margin-top: 0;
 }
 
 main > h1 {
@@ -53,12 +56,12 @@ main > h1 {
 }
 #board {
   grid-area: board;
-  background-color: rgba(208, 183, 13, 0.25);
+
 
 }
 #graveyard {
   grid-area: graveyard;
-  background-color: rgba(66, 0, 151, 0.25);
+
 }
 
 #spaceman {
