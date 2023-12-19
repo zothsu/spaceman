@@ -27,30 +27,49 @@ const WORD_LIST = {
         { word: "scrabble", hint: "A word game where players score points by placing tiles with letters onto a board" }
         ]
     };
-
 const MAX_TRIES = 12;
-//const WORD_LIST = moved to WORD_LIST.js
 const BLANK_CHAR = " _ "
-const GUESSED_CHAR = " "
-let secretWord; 
-let hint;
-
-//initial state of greeting and then spaceman
-const spacemanImg = document.getElementById('spaceman')
-spacemanImg.innerHTML = '<img src="/assets/img/spaceman-0.jpg" alt="image of astronaught in tractor beam">'
-const greetingMsg = document.getElementById('message')
-greetingMsg.innerHTML = '<p> Help the spaceman get out of the aliens teleportation beam before the aliens beam up his whole body!! Every wrong guess of the word transmits another part of his body. you only have 6 tries before his body is compleatly gone!!</p>'
-
 
 
 
 
 /*----- STATE VARIABLES (DO NOT ASSIGN VALUES TO THEM - that will be done with the init function) -----*/
-let category = 'space'
-let guessingWord;
-// guesses left
+let secretWord;
+let triesRemaining;
+let guessedWrongLetters; //array to hold incorrect guesses to be displayed
+let guessedCorrectLetters = BLANK_CHAR;
+let category = 'space' // change this on V2 to allow user to pick word categories
+
+
+
 
 /*----- CACHED ELEMENTS-----*/
+
+// RENDER GREETING AND GAME PLAY FAQ ON START
+const greetingMsgEl = document.getElementById('message')
+
+//DISPLAY WORD AREA ON START
+const displayCorrectGuessesEl = document.getElementById('')
+
+//CAPTURE USER GUESS
+const getAlphabetGuess = document.querySelector('button.alphabet')
+
+
+//DISPLAY CORRECTLY GUESSED LETTER
+let displayCorrectGuessEl = document.querySelector('display-correct-guess');
+
+//DISPLAY WORNG LETTER IN GRAVEYARD
+const displayWrongGuessEl = document.querySelector('section#display-wrong-guess');
+
+//REDER IMAGE OF SPACEMAN AFTER USER GUESS
+const spacemanImgEl = document.getElementById('spaceman')
+
+
+
+//initial state of greeting and then spaceman
+spacemanImgEl.innerHTML = '<img src="/assets/img/spaceman-0.jpg" alt="image of astronaught in tractor beam">'
+greetingMsgEl.innerHTML = '<p> Help the spaceman get out of the aliens teleportation beam before the aliens beam up his whole body!! Every wrong guess of the word transmits another part of his body. you only have 6 tries before his body is compleatly gone!!</p>'
+
 //select a random word from WORDBANK
 // Will need to replace SPACE with "category" choice from user
 
@@ -66,15 +85,26 @@ const getGuessResultEl = document.getElementById('getGuessResult')
 init();
 
 
-// Initialize all state, then call render()
+// Initialize all states && call render()
 function init() {
-    guessesLeft = 6;
+    triesRemaining = MAX_TRIES;
+    guessedWrongLetters = [];
+    guessedCorrectLetters = BLANK_CHAR;
     secretWord =  WORD_LIST[category][Math.floor(Math.random() * WORD_LIST[category].length)].word;
-    guessingWord = '_'.repeat(secretWord.length);
-
+    displayCorrectGuessEl = '_'.repeat(secretWord.length);
     render();
     }
 
+function renderDisplayCorrectGuesses() {
+//
+}
+
+function renderCheckWin() {
+//
+}
+
+
 function render() {
-    // stubbed up
+    renderDisplayCorrectGuesses()
+    renderCheckWin();
 }
