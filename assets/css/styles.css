@@ -2,7 +2,7 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;ß
+  box-sizing: border-box;
   margin: 0;
 }
 body {
@@ -67,6 +67,7 @@ main > h1 {
 #spaceman {
   max-width: 10em;
   margin: 0 auto;
+  
 }
 
 #message {
