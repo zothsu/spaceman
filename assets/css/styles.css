@@ -24,8 +24,8 @@ main {
   grid-template-rows: 5em 1fr 1fr;
   grid-template-columns: 5em 1fr 5em;
   grid-template-areas:
-    "title title ."
-    "alphabet .  graveyard"
+    "alphabet title title"
+    "alphabet board graveyard"
     "alphabet board graveyard";
 }
 img, svg {
@@ -47,7 +47,9 @@ main > h1 {
 
 #alphabet {
   grid-area: alphabet;
-  background-color: rgba(245, 40, 145, 0.17)
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 2em;
 }
 #board {
   grid-area: board;
