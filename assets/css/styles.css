@@ -51,6 +51,7 @@ button {
 p {
   padding:1em;
   max-width: 65ch;
+  text-align: center;
 }
 
 main > h1 {
