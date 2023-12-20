@@ -34,23 +34,19 @@ const WORD_LIST = {
 // RENDER GREETING AND GAME PLAY FAQ ON START
 const greetingMsgEl = document.getElementById('message')
 
-//DISPLAY WORD AREA ON START
-const displayCorrectGuessesEl = document.getElementById('')
 
 //CAPTURE USER GUESS
-const getAlphabetGuess = document.querySelector('button.alphabet')
+const getAlphabetGuess = document.querySelector('#alphabet')
 
 
 //DISPLAY CORRECTLY GUESSED LETTER
-let displayCorrectGuessEl = document.querySelector('display-correct-guess');
+let displayCorrectGuessEl = document.getElementById('display-correct-guess');
 
 //DISPLAY WORNG LETTER IN GRAVEYARD
-const displayWrongGuessEl = document.querySelector('section#display-wrong-guess');
+const displayWrongGuessEl = document.getElementById('display-wrong-guess');
 
 //REDER IMAGE OF SPACEMAN AFTER USER GUESS
 const spacemanImgEl = document.getElementById('spaceman')
-
-
 
 //initial state of greeting and then spaceman
 spacemanImgEl.innerHTML = '<img src="/assets/img/spaceman-0.jpg" alt="image of astronaught in tractor beam">'
@@ -59,8 +55,6 @@ greetingMsgEl.innerHTML = '<p> Help the spaceman get out of the aliens teleporta
 //select a random word from WORDBANK
 // Will need to replace SPACE with "category" choice from user
 
-//guessed letters
-const guessedLetters = [];
 
 const getGuessResultEl = document.getElementById('getGuessResult')
 
@@ -69,7 +63,6 @@ const getGuessResultEl = document.getElementById('getGuessResult')
 let secretWord;
 let triesRemaining;
 let guessedWrongLetters; //array to hold incorrect guesses to be displayed
-let guessedCorrectLetters;
 let category = 'space' // change this on V2 to allow user to pick word categories
 
 let outcome; // win or loose
@@ -78,10 +71,14 @@ let guessedWord; // display guessed word
 
 /*----- EVENT LISTENERS -----*/
 //START GAME
-document.querySelector('section > button').addEventListener('click', handlegameStart);
+// document.querySelector('section > button').addEventListener('click', handlegameStart);
 
 //Letter GUESS
-document.querySelector('button.alphabet').addEventListener('click', handleLetterGuess);
+getAlphabetGuess.addEventListener('click', handleLetterGuess);
+
+
+
+
 
 /*----- FUNCTIONS -----*/
 init();
@@ -91,21 +88,40 @@ function init() {
     triesRemaining = MAX_TRIES;
     guessedWrongLetters = [];
     // guessedCorrectLetters = BLANK_CHAR;
-    secretWord =  WORD_LIST[category][Math.floor(Math.random() * WORD_LIST[category].length)].word;
-    displayCorrectGuessEl = '_'.repeat(secretWord.length);
+    secretWord =  WORD_LIST[category][Math.floor(Math.random() * WORD_LIST[category].length)].word.toUpperCase();
+    answer = secretWord.split("")
+    guessedWord = answer.map(letter => "_")
     render();
-    }
+}
 
 function renderDisplayCorrectGuesses() {
-// stubbed
+    displayCorrectGuessEl.innerHTML = guessedWord.join("")
+    displayWrongGuessEl.innerHTML = " "
+    guessedWrongLetters.forEach((letter) => {
+        const wrongLetterEl = document.createElement('div')
+        wrongLetterEl.textContent = letter
+    })
+
 }
 
 function renderCheckWin() {
 //stubbed
 }
 
-function handleLetterGuess() {
-    //
+function handleLetterGuess(evt) {
+    let guessedLetter = (evt.target.textContent)
+    if (secretWord.includes(guessedLetter)) {
+        answer.forEach((letter, iDx) => {
+            if (guessedLetter === letter) {
+                guessedWord[iDx] = letter
+            }
+        })
+        
+    } else {
+        guessedWrongLetters.push(guessedLetter)
+        
+    }
+    render()
 }
 
 
