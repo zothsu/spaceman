@@ -1,5 +1,5 @@
 /*----- CONSTANTS/ FIXED VALUES, LOOKUP DATA STRUCTURES -----*/
-const MAX_TRIES = 12;
+const MAX_TRIES = 6;
 const WORD_LIST = {
     space: [
         { word: "astronaut", hint: "A person who travels in space" },
@@ -25,45 +25,39 @@ const WORD_LIST = {
         { word: "football", hint: "A team sport played with an oval-shaped ball" },
         { word: "tetris", hint: "A tile-matching puzzle video game" },
         { word: "scrabble", hint: "A word game where players score points by placing tiles with letters onto a board" }
-        ]
-    };
+    ]
+};
 
 
 /*----- CACHED ELEMENTS-----*/
-
-// RENDER GREETING AND GAME PLAY FAQ ON START
-const greetingMsgEl = document.getElementById('message')
-
+const getGuessResultEl = document.getElementById('getGuessResult')
 
 //CAPTURE USER GUESS
 const getAlphabetGuess = document.querySelector('#alphabet')
-
 
 //DISPLAY CORRECTLY GUESSED LETTER
 let displayCorrectGuessEl = document.getElementById('display-correct-guess');
 
 //DISPLAY WORNG LETTER IN GRAVEYARD
-const displayWrongGuessEl = document.getElementById('display-wrong-guess');
+let displayWrongGuessEl = document.getElementById('display-wrong-guess');
 
 //REDER IMAGE OF SPACEMAN AFTER USER GUESS
 const spacemanImgEl = document.getElementById('spaceman')
 
+// RENDER GREETING AND GAME PLAY FAQ ON START
+const msgEl = document.getElementById('message')
+
+let categoryEl = document.getElementById('category')
 //initial state of greeting and then spaceman
-spacemanImgEl.innerHTML = '<img src="/assets/img/spaceman-0.jpg" alt="image of astronaught in tractor beam">'
-greetingMsgEl.innerHTML = '<p> Help the spaceman get out of the aliens teleportation beam before the aliens beam up his whole body!! Every wrong guess of the word transmits another part of his body. you only have 6 tries before his body is compleatly gone!!</p>'
-
-//select a random word from WORDBANK
-// Will need to replace SPACE with "category" choice from user
-
-
-const getGuessResultEl = document.getElementById('getGuessResult')
+// spacemanImgEl.innerHTML = '<img src="/assets/img/spaceman-0.jpg" alt="image of astronaught in tractor beam">'
+// greetingMsgEl.innerHTML = '<p> Help the spaceman get out of the aliens teleportation beam before the aliens beam up his whole body!! Every wrong guess of the word transmits another part of his body. you only have 6 tries before his body is compleatly gone!!</p>'
 
 
 /*----- STATE VARIABLES (DO NOT ASSIGN VALUES TO THEM - that will be done with the init function) -----*/
 let secretWord;
 let triesRemaining;
 let guessedWrongLetters; //array to hold incorrect guesses to be displayed
-let category = 'space' // change this on V2 to allow user to pick word categories
+let category;// change this on V2 to allow user to pick word categories
 
 let outcome; // win or loose
 let guessedWord; // display guessed word
@@ -75,7 +69,7 @@ let guessedWord; // display guessed word
 
 //Letter GUESS
 getAlphabetGuess.addEventListener('click', handleLetterGuess);
-
+categoryEl.addEventListener('change', init)
 
 
 
@@ -84,10 +78,11 @@ getAlphabetGuess.addEventListener('click', handleLetterGuess);
 init();
 
 
-function init() {
+function init(evt) {
     triesRemaining = MAX_TRIES;
     guessedWrongLetters = [];
-    // guessedCorrectLetters = BLANK_CHAR;
+    category = categoryEl.value;
+    console.log(category)
     secretWord =  WORD_LIST[category][Math.floor(Math.random() * WORD_LIST[category].length)].word.toUpperCase();
     answer = secretWord.split("")
     guessedWord = answer.map(letter => "_")
@@ -98,14 +93,19 @@ function renderDisplayCorrectGuesses() {
     displayCorrectGuessEl.innerHTML = guessedWord.join("")
     displayWrongGuessEl.innerHTML = " "
     guessedWrongLetters.forEach((letter) => {
-        const wrongLetterEl = document.createElement('div')
-        wrongLetterEl.textContent = letter
+        let wrongLetterEl = document.createElement('div')
+        wrongLetterEl = document.createTextNode(letter)
+        displayWrongGuessEl.appendChild(wrongLetterEl)
     })
 
 }
 
 function renderCheckWin() {
-//stubbed
+    if (guessedWrongLetters.length === MAX_TRIES) {
+        msgEl.textContent = "You loose" 
+    } else if (secretWord === guessedWord.join("")) {
+        msgEl.textContent = "you win"
+    }
 }
 
 function handleLetterGuess(evt) {
@@ -116,10 +116,8 @@ function handleLetterGuess(evt) {
                 guessedWord[iDx] = letter
             }
         })
-        
     } else {
         guessedWrongLetters.push(guessedLetter)
-        
     }
     render()
 }
@@ -128,4 +126,6 @@ function handleLetterGuess(evt) {
 function render() {
     renderDisplayCorrectGuesses()
     renderCheckWin();
+    spacemanImgEl.src = `assets/img/spaceman-${guessedWrongLetters.length}.jpg`;
+
 }

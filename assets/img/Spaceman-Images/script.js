@@ -22,7 +22,6 @@ function init() {
 
 function render() {
   imgEl.src = `imgs/spaceman-${curFrame}.jpg`;
-  filmstripEl.style.backgroundPosition = `-${SPRITE_WIDTH * (6 - curFrame)}px`;
   btnEls.forEach(function(btn) {
     btn.disabled = false;
     btn.style.backgroundColor = 'white';
