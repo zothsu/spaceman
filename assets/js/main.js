@@ -1,5 +1,5 @@
 /*----- CONSTANTS/ FIXED VALUES, LOOKUP DATA STRUCTURES -----*/
-
+const MAX_TRIES = 12;
 const WORD_LIST = {
     space: [
         { word: "astronaut", hint: "A person who travels in space" },
@@ -27,20 +27,6 @@ const WORD_LIST = {
         { word: "scrabble", hint: "A word game where players score points by placing tiles with letters onto a board" }
         ]
     };
-const MAX_TRIES = 12;
-const BLANK_CHAR = " _ "
-
-
-
-
-/*----- STATE VARIABLES (DO NOT ASSIGN VALUES TO THEM - that will be done with the init function) -----*/
-let secretWord;
-let triesRemaining;
-let guessedWrongLetters; //array to hold incorrect guesses to be displayed
-let guessedCorrectLetters = BLANK_CHAR;
-let category = 'space' // change this on V2 to allow user to pick word categories
-
-
 
 
 /*----- CACHED ELEMENTS-----*/
@@ -79,28 +65,47 @@ const guessedLetters = [];
 const getGuessResultEl = document.getElementById('getGuessResult')
 
 
+/*----- STATE VARIABLES (DO NOT ASSIGN VALUES TO THEM - that will be done with the init function) -----*/
+let secretWord;
+let triesRemaining;
+let guessedWrongLetters; //array to hold incorrect guesses to be displayed
+let guessedCorrectLetters;
+let category = 'space' // change this on V2 to allow user to pick word categories
+
+let outcome; // win or loose
+let guessedWord; // display guessed word
+
+
 /*----- EVENT LISTENERS -----*/
+//START GAME
+document.querySelector('section > button').addEventListener('click', handlegameStart);
+
+//Letter GUESS
+document.querySelector('button.alphabet').addEventListener('click', handleLetterGuess);
 
 /*----- FUNCTIONS -----*/
 init();
 
 
-// Initialize all states && call render()
 function init() {
     triesRemaining = MAX_TRIES;
     guessedWrongLetters = [];
-    guessedCorrectLetters = BLANK_CHAR;
+    // guessedCorrectLetters = BLANK_CHAR;
     secretWord =  WORD_LIST[category][Math.floor(Math.random() * WORD_LIST[category].length)].word;
     displayCorrectGuessEl = '_'.repeat(secretWord.length);
     render();
     }
 
 function renderDisplayCorrectGuesses() {
-//
+// stubbed
 }
 
 function renderCheckWin() {
-//
+//stubbed
+}
+
+function handleLetterGuess() {
+    //
 }
 
 
