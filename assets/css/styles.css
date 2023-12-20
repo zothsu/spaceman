@@ -41,6 +41,7 @@ h1 {
 }
 button {
   background-color:#0a0a23;
+  filter: drop-shadow(2px 4px 1px rgb(160, 0, 210));
   color: #fff;
   border:none; 
   border-radius:10px; 
