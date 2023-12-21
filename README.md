@@ -13,7 +13,8 @@ Images of your actual game.
 
 ## Technologies used
 
-List of the technologies used, e.g., JavaScript, HTML, CSS...
+- JavaScript
+- HTML/CSS
 
 ## Getting Started
 
@@ -21,6 +22,6 @@ In this section include the link to your deployed game and any instructions you 
 
 ## Next Steps
 
-Planned future enhancements (icebox items).
+- Make application responsive
 
 
