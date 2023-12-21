@@ -1,11 +1,9 @@
 # SPACEMAN
 
-> The classic game of hangman reimagined!
 
 ## Description
 
-A description of your game.  Background info of the game is a nice touch.
-Spaceman made while attending bootcamp with General Assembly 
+A modern reminagining of the classic game hangman! Save the Astronaught from the transportation beam! If you get stuck, click on the hint option for a quick hint of the secret word.
 
 ### Screenshot(s)
 
@@ -15,10 +13,11 @@ Images of your actual game.
 
 - JavaScript
 - HTML/CSS
+- Git
 
 ## Getting Started
 
-In this section include the link to your deployed game and any instructions you deem important. 
+Click on the deployed site and enjoy! [https://zothsu.github.io/spaceman/](https://zothsu.github.io/spaceman/)
 
 ## Next Steps
 
