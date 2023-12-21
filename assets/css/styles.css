@@ -83,7 +83,7 @@ main > h1 {
   border-radius: 19% 81% 16% 84% / 60% 41% 59% 40% ;
   max-width: 6em;
   margin-left: 5em;
-  margin-bottom: 5em;
+  margin-top: 1.5em;
   position: absolute;
 }
 #display-wrong-guess {
