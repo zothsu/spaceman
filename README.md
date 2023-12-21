@@ -17,7 +17,9 @@ Images of your actual game.
 
 ## Getting Started
 
-Click on the deployed site and enjoy! [https://zothsu.github.io/spaceman/](https://zothsu.github.io/spaceman/)
+Click on the deployed site and enjoy! 
+
+[https://zothsu.github.io/spaceman/](https://zothsu.github.io/spaceman/)
 
 ## Next Steps
 
