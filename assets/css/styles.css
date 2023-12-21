@@ -6,7 +6,6 @@
   margin: 0;
 }
 body {
-  font-family: 'Montserrat', sans-serif;
   font-family: 'Teko', sans-serif;
   background: #010334;
   color: #fff;
@@ -82,8 +81,10 @@ main > h1 {
 #hint {
   background-color: pink;
   border-radius: 19% 81% 16% 84% / 60% 41% 59% 40% ;
-  max-width: 4em;
+  max-width: 6em;
   margin-left: 5em;
+  margin-bottom: 5em;
+  position: absolute;
 }
 #display-wrong-guess {
   grid-area: graveyard;
@@ -97,10 +98,10 @@ main > h1 {
 }
 
 #message {
-  margin-bottom: 2em;
+  margin: auto 2em;
   font-size: 2rem;
   background: rgba(160, 0, 210, .7);
-  padding: 1em;
+  padding: 1.5em;
   border-radius: 50%;
 }
 
