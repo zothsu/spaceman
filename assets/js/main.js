@@ -29,32 +29,22 @@ const WORD_LIST = {
 };
 
 
+/*----- STATE VARIABLES (DO NOT ASSIGN VALUES TO THEM - that will be done with the init function) -----*/
+let secretWord;
+let category;
+let triesRemaining;
+let guessedWrongLetters; 
+let guessedWord; 
+let outcome; 
+
+
 /*----- CACHED ELEMENTS-----*/
 const getAlphabetGuess = document.querySelector('#alphabet')
 const spacemanImgEl = document.getElementById('spaceman')
 const msgEl = document.getElementById('message')
-
-
 let displayCorrectGuessEl = document.getElementById('display-correct-guess');
-
-
 let displayWrongGuessEl = document.getElementById('display-wrong-guess');
-
 let categoryEl = document.getElementById('category')
-
-//initial state of greeting and then spaceman
-// spacemanImgEl.innerHTML = '<img src="/assets/img/spaceman-0.jpg" alt="image of astronaught in tractor beam">'
-// greetingMsgEl.innerHTML = '<p> Help the spaceman get out of the aliens teleportation beam before the aliens beam up his whole body!! Every wrong guess of the word transmits another part of his body. you only have 6 tries before his body is compleatly gone!!</p>'
-
-
-/*----- STATE VARIABLES (DO NOT ASSIGN VALUES TO THEM - that will be done with the init function) -----*/
-let secretWord;
-let triesRemaining;
-let guessedWrongLetters; //array to hold incorrect guesses to be displayed
-let category;// change this on V2 to allow user to pick word categories
-
-let outcome; // win or loose
-let guessedWord; // display guessed word
 
 
 /*----- EVENT LISTENERS -----*/
@@ -62,17 +52,13 @@ getAlphabetGuess.addEventListener('click', handleLetterGuess);
 categoryEl.addEventListener('change', init)
 
 
-
-
 /*----- FUNCTIONS -----*/
 init();
-
 
 function init(evt) {
     triesRemaining = MAX_TRIES;
     guessedWrongLetters = [];
     category = categoryEl.value;
-    console.log(category)
     secretWord =  WORD_LIST[category][Math.floor(Math.random() * WORD_LIST[category].length)].word.toUpperCase();
     answer = secretWord.split("")
     guessedWord = answer.map(letter => "_")
@@ -87,7 +73,6 @@ function renderDisplayCorrectGuesses() {
         wrongLetterEl = document.createTextNode(letter)
         displayWrongGuessEl.appendChild(wrongLetterEl)
     })
-
 }
 
 function renderCheckWin() {
@@ -112,10 +97,9 @@ function handleLetterGuess(evt) {
     render()
 }
 
-
 function render() {
     renderDisplayCorrectGuesses()
     renderCheckWin();
     spacemanImgEl.src = `assets/img/spaceman-${guessedWrongLetters.length}.jpg`;
-
+    
 }
