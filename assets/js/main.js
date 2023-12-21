@@ -30,24 +30,18 @@ const WORD_LIST = {
 
 
 /*----- CACHED ELEMENTS-----*/
-const getGuessResultEl = document.getElementById('getGuessResult')
-
-//CAPTURE USER GUESS
 const getAlphabetGuess = document.querySelector('#alphabet')
-
-//DISPLAY CORRECTLY GUESSED LETTER
-let displayCorrectGuessEl = document.getElementById('display-correct-guess');
-
-//DISPLAY WORNG LETTER IN GRAVEYARD
-let displayWrongGuessEl = document.getElementById('display-wrong-guess');
-
-//REDER IMAGE OF SPACEMAN AFTER USER GUESS
 const spacemanImgEl = document.getElementById('spaceman')
-
-// RENDER GREETING AND GAME PLAY FAQ ON START
 const msgEl = document.getElementById('message')
 
+
+let displayCorrectGuessEl = document.getElementById('display-correct-guess');
+
+
+let displayWrongGuessEl = document.getElementById('display-wrong-guess');
+
 let categoryEl = document.getElementById('category')
+
 //initial state of greeting and then spaceman
 // spacemanImgEl.innerHTML = '<img src="/assets/img/spaceman-0.jpg" alt="image of astronaught in tractor beam">'
 // greetingMsgEl.innerHTML = '<p> Help the spaceman get out of the aliens teleportation beam before the aliens beam up his whole body!! Every wrong guess of the word transmits another part of his body. you only have 6 tries before his body is compleatly gone!!</p>'
@@ -64,10 +58,6 @@ let guessedWord; // display guessed word
 
 
 /*----- EVENT LISTENERS -----*/
-//START GAME
-// document.querySelector('section > button').addEventListener('click', handlegameStart);
-
-//Letter GUESS
 getAlphabetGuess.addEventListener('click', handleLetterGuess);
 categoryEl.addEventListener('change', init)
 
