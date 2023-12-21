@@ -11,7 +11,7 @@ body {
   background: #010334;
   color: #fff;
   height: 100vh;
-  background-image: url(/assets/img/flyingSaucer.png);
+  background-image: url("/assets/img/flyingSaucer.png");
   background-size: cover;
   background-position: top;
   margin-top: -1em;
@@ -23,7 +23,7 @@ main {
   height: 100vh;
   display: grid;
   grid-template-rows: 5em 1fr 1fr;
-  grid-template-columns: 5em 1fr 1fr 5em;
+  grid-template-columns: 6em 1fr 1fr 5em;
   grid-template-areas:
   "alphabet title category category"
   "alphabet . . graveyard"
@@ -78,6 +78,8 @@ main > h1 {
 }
 #display-wrong-guess {
   grid-area: graveyard;
+  display: flex;
+  flex-direction: column;
 
 }
 
@@ -88,8 +90,11 @@ main > h1 {
 }
 
 #message {
-  display: flex ;
-  align-self: flex-end;
+  margin-bottom: 2em;
+  font-size: 2rem;
+  background: rgba(160, 0, 210, .7);
+  padding: 1em;
+  border-radius: 50%;
 }
 
 
@@ -98,4 +103,8 @@ main > h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#display-correct-guess {
+  font-size: 3rem;
 }
