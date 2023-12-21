@@ -6,6 +6,8 @@
   margin: 0;
 }
 body {
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Teko', sans-serif;
   background: #010334;
   color: #fff;
   height: 100vh;
@@ -16,23 +18,23 @@ body {
 }
 
 main {
-  font-family: 'Exo 2', sans-serif;
   text-align: center;
   line-height: 1.5;
   height: 100vh;
   display: grid;
   grid-template-rows: 5em 1fr 1fr;
-  grid-template-columns: 5em 1fr 5em;
+  grid-template-columns: 5em 1fr 1fr 5em;
   grid-template-areas:
-    "alphabet title title"
-    "alphabet . graveyard"
-    "alphabet board graveyard";
+  "alphabet title category category"
+  "alphabet . . graveyard"
+  "alphabet board board graveyard";
 }
 img, svg {
   display: block;
   max-width: 100%;
 }
 h1 {
+  font-family: 'Exo 2', sans-serif;
   text-align: left;
   font-size: 4rem;
   filter: drop-shadow(2px 4px 1px rgb(160, 0, 210));
@@ -74,7 +76,7 @@ main > h1 {
 
 
 }
-#graveyard {
+#display-wrong-guess {
   grid-area: graveyard;
 
 }
@@ -88,4 +90,12 @@ main > h1 {
 #message {
   display: flex ;
   align-self: flex-end;
+}
+
+
+#dropdown {
+  grid-area: category;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

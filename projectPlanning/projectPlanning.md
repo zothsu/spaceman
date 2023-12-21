@@ -1,5 +1,5 @@
 # Project Planning 
-
+Help the spaceman get out of the aliens teleportation beam before the aliens beam up his whole body!! Every wrong guess of the word transmits another part of his body. you only have 6 tries before his body is compleatly gone!!</p>'
 ## WIREFRAMING
 
 [https://www.canva.com/](https://www.canva.com/design/DAF24Vo06aw/D_7EHH3YyJ_Zhe1gILqWAA/edit?utm_content=DAF24Vo06aw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)

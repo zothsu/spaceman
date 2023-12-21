@@ -3,19 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Spaceman</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600&family=Goldman&family=Poiret+One&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css">
-<script defer src="assets/js/main.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600&family=Montserrat&family=Teko&display=swap" rel="stylesheet">  <link rel="stylesheet" href="assets/css/styles.css">
+  <script defer src="assets/js/main.js"></script>
 </head>
 <body>
   <main>
     <h1>SPACEMAN!</h1>
-    <section id="alphabet">
+    <section id="dropdown">
+      <p>Pick your Category!</p>
+      <select name="category" id="category">
+        <option value="space">space</option>
+        <option value="food">food</option>
+        <option value="games">game</option>
+      </select>
+    </section>
+      
+      <section id="alphabet">
       <button class="alphabet">A</button>
       <button class="alphabet">B</button>
       <button class="alphabet">C</button>
@@ -54,18 +60,7 @@
     </section>
 
     <section id="display-wrong-guess">
-      <div> _ </div>
-      <div> _ </div>
-      <div> _ </div>
-      <div> _ </div>
-      <div> _ </div>
-      <div> _ </div>
     </section>
-    <select name="category" id="category">
-      <option value="space">space</option>
-      <option value="food">food</option>
-      <option value="games">game</option>
-    </select>
 
   </main>
 </body>
