@@ -47,6 +47,7 @@ let displayWrongGuessEl = document.getElementById('display-wrong-guess');
 let categoryEl = document.getElementById('category')
 
 
+
 /*----- EVENT LISTENERS -----*/
 getAlphabetGuess.addEventListener('click', handleLetterGuess);
 categoryEl.addEventListener('change', init)
@@ -61,7 +62,7 @@ function init(evt) {
     category = categoryEl.value;
     secretWord =  WORD_LIST[category][Math.floor(Math.random() * WORD_LIST[category].length)].word.toUpperCase();
     answer = secretWord.split("")
-    guessedWord = answer.map(letter => "_")
+    guessedWord = answer.map(letter => "_ &nbsp")
     render();
 }
 
@@ -77,9 +78,21 @@ function renderDisplayCorrectGuesses() {
 
 function renderCheckWin() {
     if (guessedWrongLetters.length === MAX_TRIES) {
-        msgEl.textContent = "You loose" 
+        msgEl.textContent = "Oh no! The Aliens have teleported them away! Better luck next time!" 
     } else if (secretWord === guessedWord.join("")) {
-        msgEl.textContent = "you win"
+        msgEl.textContent = "You have saved the Astronaught! Congratulations!"
+    } else if (guessedWrongLetters.length === 5) {
+        msgEl.textContent = "A head is really the most important part!"
+    } else if (guessedWrongLetters.length === 4) {
+        msgEl.textContent = "Okay just one arm.."
+    } else if (guessedWrongLetters.length === 3) {
+        msgEl.textContent = "Gah! Well at least they still have arms!"
+    } else if (guessedWrongLetters.length === 2) {
+        msgEl.textContent = "Okay, a wheel chair"
+    } else if (guessedWrongLetters.length === 1) {
+        msgEl.textContent = "Well I suppose they could get a peg leg"
+    } else {
+        msgEl.textContent = "Help the Astronaught get out of the aliens teleportation beam before the aliens beam up their whole body!! You only have six tries!"
     }
 }
 
