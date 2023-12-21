@@ -36,7 +36,7 @@ let triesRemaining;
 let guessedWrongLetters; 
 let guessedWord; 
 let outcome; 
-
+let secretHint;
 
 /*----- CACHED ELEMENTS-----*/
 const getAlphabetGuess = document.querySelector('#alphabet')
@@ -45,24 +45,36 @@ const msgEl = document.getElementById('message')
 let displayCorrectGuessEl = document.getElementById('display-correct-guess');
 let displayWrongGuessEl = document.getElementById('display-wrong-guess');
 let categoryEl = document.getElementById('category')
+const restartBtn = document.getElementById('play-again')
+let hint = document.getElementById('hint')
 
 
 
 /*----- EVENT LISTENERS -----*/
 getAlphabetGuess.addEventListener('click', handleLetterGuess);
-categoryEl.addEventListener('change', init)
+categoryEl.addEventListener('change', init);
+restartBtn.addEventListener('click', init);
+hint.addEventListener('click', handleHint)
 
 
 /*----- FUNCTIONS -----*/
 init();
 
+function handleHint() {
+    hint.innerHTML = secretHint
+}
+
 function init(evt) {
     triesRemaining = MAX_TRIES;
     guessedWrongLetters = [];
+    hint.innerHTML = "Hint"
     category = categoryEl.value;
-    secretWord =  WORD_LIST[category][Math.floor(Math.random() * WORD_LIST[category].length)].word.toUpperCase();
+    let categoryIdx = Math.floor(Math.random() * WORD_LIST[category].length)
+    secretWord =  WORD_LIST[category][categoryIdx].word.toUpperCase();
+    secretHint =  WORD_LIST[category][categoryIdx].hint;
     answer = secretWord.split("")
     guessedWord = answer.map(letter => "_ &nbsp")
+    outcome = null;
     render();
 }
 
@@ -71,16 +83,19 @@ function renderDisplayCorrectGuesses() {
     displayWrongGuessEl.innerHTML = " "
     guessedWrongLetters.forEach((letter) => {
         let wrongLetterEl = document.createElement('div')
-        wrongLetterEl = document.createTextNode(letter)
+        wrongLetterEl.innerHTML = letter
         displayWrongGuessEl.appendChild(wrongLetterEl)
     })
 }
 
+
 function renderCheckWin() {
     if (guessedWrongLetters.length === MAX_TRIES) {
+        outcome = "L"
         msgEl.textContent = "Oh no! The Aliens have teleported them away! Better luck next time!" 
     } else if (secretWord === guessedWord.join("")) {
         msgEl.textContent = "You have saved the Astronaught! Congratulations!"
+        outcome = "W"
     } else if (guessedWrongLetters.length === 5) {
         msgEl.textContent = "A head is really the most important part!"
     } else if (guessedWrongLetters.length === 4) {
@@ -98,6 +113,7 @@ function renderCheckWin() {
 
 function handleLetterGuess(evt) {
     let guessedLetter = (evt.target.textContent)
+    if (outcome || evt.target.tagName !== "BUTTON" || guessedWrongLetters.includes(guessedLetter) || guessedWord.includes(guessedLetter)) return
     if (secretWord.includes(guessedLetter)) {
         answer.forEach((letter, iDx) => {
             if (guessedLetter === letter) {
@@ -114,5 +130,9 @@ function render() {
     renderDisplayCorrectGuesses()
     renderCheckWin();
     spacemanImgEl.src = `assets/img/spaceman-${guessedWrongLetters.length}.jpg`;
-    
+    if (outcome) {
+        restartBtn.style.visibility = "visible"
+    } else {
+        restartBtn.style.visibility = "hidden"
+    }
 }
