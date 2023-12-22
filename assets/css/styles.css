@@ -130,7 +130,6 @@ main > h1 {
   background: #fff;
   border: 1px solid #ccc;
   border-radius: 6px;
-  overflow: hidden;
   position: relative;
 }
 
