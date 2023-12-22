@@ -7,7 +7,16 @@ A modern reminagining of the classic game hangman! Save the Astronaught from the
 
 ### Screenshot(s)
 
-Images of your actual game.
+#### Starting the game
+
+![Starting the game](https://i.imgur.com/JsYYYad.png)
+
+
+
+#### Choosing a category
+![Starting the game](https://i.imgur.com/1aOykZ6.png)
+
+
 
 ## Technologies used
 
