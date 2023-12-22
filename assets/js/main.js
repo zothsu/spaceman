@@ -30,41 +30,38 @@ const WORD_LIST = {
 
 
 /*----- STATE VARIABLES (DO NOT ASSIGN VALUES TO THEM - that will be done with the init function) -----*/
-let secretWord;
 let category;
-let triesRemaining;
+let displayHint;
 let guessedWrongLetters; 
 let guessedWord; 
-let outcome; 
 let secretHint;
-let displayHint;
+let secretWord;
+let triesRemaining;
+let outcome; 
+
 
 /*----- CACHED ELEMENTS-----*/
 const getAlphabetGuess = document.querySelector('#alphabet')
+const restartBtn = document.getElementById('play-again')
 const spacemanImgEl = document.getElementById('spaceman')
-const msgEl = document.getElementById('message')
+
 let displayCorrectGuessEl = document.getElementById('display-correct-guess');
 let displayWrongGuessEl = document.getElementById('display-wrong-guess');
 let categoryEl = document.getElementById('category')
-const restartBtn = document.getElementById('play-again')
 let hint = document.getElementById('hint')
-
+let msgEl = document.getElementById('message')
 
 
 /*----- EVENT LISTENERS -----*/
 getAlphabetGuess.addEventListener('click', handleLetterGuess);
-categoryEl.addEventListener('change', init);
 restartBtn.addEventListener('click', init);
+
+categoryEl.addEventListener('change', init);
 hint.addEventListener('click', handleHint)
 
 
 /*----- FUNCTIONS -----*/
 init();
-
-function handleHint() {
-    displayHint = displayHint ? false : true;
-    hint.innerHTML = displayHint ? secretHint : "Hint";
-}
 
 function init(evt) {
     triesRemaining = MAX_TRIES;
@@ -81,6 +78,26 @@ function init(evt) {
     render();
 }
 
+function handleHint() {
+    displayHint = displayHint ? false : true;
+    hint.innerHTML = displayHint ? secretHint : "Hint";
+}
+
+function handleLetterGuess(evt) {
+    let guessedLetter = (evt.target.textContent)
+    if (outcome || evt.target.tagName !== "BUTTON" || guessedWrongLetters.includes(guessedLetter) || guessedWord.includes(guessedLetter)) return
+    if (secretWord.includes(guessedLetter)) {
+        answer.forEach((letter, iDx) => {
+            if (guessedLetter === letter) {
+                guessedWord[iDx] = letter
+            }
+        })
+    } else {
+        guessedWrongLetters.push(guessedLetter)
+    }
+    render()
+}
+
 function renderDisplayCorrectGuesses() {
     displayCorrectGuessEl.innerHTML = guessedWord.join("")
     displayWrongGuessEl.innerHTML = " "
@@ -90,7 +107,6 @@ function renderDisplayCorrectGuesses() {
         displayWrongGuessEl.appendChild(wrongLetterEl)
     })
 }
-
 
 function renderCheckWin() {
     if (guessedWrongLetters.length === MAX_TRIES) {
@@ -114,22 +130,8 @@ function renderCheckWin() {
     }
 }
 
-function handleLetterGuess(evt) {
-    let guessedLetter = (evt.target.textContent)
-    if (outcome || evt.target.tagName !== "BUTTON" || guessedWrongLetters.includes(guessedLetter) || guessedWord.includes(guessedLetter)) return
-    if (secretWord.includes(guessedLetter)) {
-        answer.forEach((letter, iDx) => {
-            if (guessedLetter === letter) {
-                guessedWord[iDx] = letter
-            }
-        })
-    } else {
-        guessedWrongLetters.push(guessedLetter)
-    }
-    render()
-}
-
 function render() {
+
     renderDisplayCorrectGuesses()
     renderCheckWin();
     spacemanImgEl.src = `assets/img/spaceman-${guessedWrongLetters.length}.jpg`;
