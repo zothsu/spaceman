@@ -33,5 +33,6 @@ Click on the deployed site and enjoy!
 ## Next Steps
 
 - Make application responsive
+  - keyboard to move to bottom on smaller screens
 
 
