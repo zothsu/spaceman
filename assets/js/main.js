@@ -37,6 +37,7 @@ let guessedWrongLetters;
 let guessedWord; 
 let outcome; 
 let secretHint;
+let displayHint;
 
 /*----- CACHED ELEMENTS-----*/
 const getAlphabetGuess = document.querySelector('#alphabet')
@@ -61,11 +62,13 @@ hint.addEventListener('click', handleHint)
 init();
 
 function handleHint() {
-    hint.innerHTML = secretHint
+    displayHint = displayHint ? false : true;
+    hint.innerHTML = displayHint ? secretHint : "Hint";
 }
 
 function init(evt) {
     triesRemaining = MAX_TRIES;
+    displayHint = false;
     guessedWrongLetters = [];
     hint.innerHTML = "Hint"
     category = categoryEl.value;
