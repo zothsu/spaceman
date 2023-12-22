@@ -90,11 +90,15 @@ main > h1 {
   grid-area: graveyard;
   display: flex;
   flex-direction: column;
+  font-size: 2rem;
+  justify-content: center;
+  margin-right: 2em;
 }
 
 #spaceman {
   max-width: 10em;
-  margin: 0 auto;
+  margin: 1em auto;
+
 }
 
 #message {
