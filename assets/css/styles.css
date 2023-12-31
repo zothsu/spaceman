@@ -209,14 +209,4 @@ main > h1 {
       margin-right: 2em;
     }
 
-    body {
-      font-family: 'Teko', sans-serif;
-      background: #010334;
-      color: #fff;
-      height: 100vh;
-      background-image: url('https://i.imgur.com/0xt78Yb.png');
-      background-size: cover;
-      background-position: top;
-      margin-top: -1em;
-    }
 }
