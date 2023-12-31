@@ -34,15 +34,6 @@ img, svg {
   max-width: 100%;
 }
 
-h1 {
-  font-family: 'Exo 2', sans-serif;
-  text-align: left;
-  font-size: 5rem;
-  filter: drop-shadow(2px 4px 1px rgb(160, 0, 210));
-  padding-left: 4em;
-  margin-top: 0;
-}
-
 button {
   background-color:#0a0a23;
   filter: drop-shadow(2px 4px 1px rgb(160, 0, 210));
@@ -62,6 +53,12 @@ p {
 
 main > h1 {
   grid-area: title;
+  font-family: 'Exo 2', sans-serif;
+  text-align: left;
+  font-size: 5rem;
+  filter: drop-shadow(2px 4px 1px rgb(160, 0, 210));
+  padding-left: 4em;
+  margin-top: 0;
 }
 
 .flex {
@@ -79,6 +76,7 @@ main > h1 {
 }
 
 #hint {
+  grid-area: hint;
   background-color: #f755be;
   border-radius: 19% 81% 16% 84% / 60% 41% 59% 40% ;
   max-width: 6em;
@@ -149,4 +147,64 @@ main > h1 {
   position: relative;
   z-index: 10;
   font-size: 1em;
+}
+
+@media (max-width: 600px) {
+  main {
+    text-align: center;
+    line-height: 1.5;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 3em;
+    grid-template-areas:
+    "title"
+    "board"
+    "graveyard"
+    "alphabet";
+  }
+
+    #alphabet {
+      grid-area: alphabet;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    #board {
+      grid-area: board;
+    }
+    
+    #dropdown {
+      grid-area: category;
+      display: none;
+    }
+    
+    #hint {
+      display: none;
+    }
+
+    main > h1 {
+      grid-area: title;
+      font-family: 'Exo 2', sans-serif;
+      font-size: 2rem;
+      filter: drop-shadow(2px 4px 1px rgb(160, 0, 210));
+      margin: .5em 0;
+    }
+
+    #message {
+      font-size: 1.2rem;
+      background: rgba(160, 0, 210, .7);
+      padding: .7em;
+      border-radius: 2em;
+      width: 100vw;
+    }
+
+    #display-wrong-guess {
+      grid-area: graveyard;
+      display: flex;
+      flex-direction: row;
+      font-size: 2rem;
+      justify-content: space-around;
+      margin-right: 2em;
+    }
 }
