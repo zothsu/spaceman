@@ -3,7 +3,7 @@
 
 ## Description
 
-A modern reminagining of the classic game hangman! Save the Astronaught from the transportation beam! If you get stuck, click on the hint option for a quick hint of the secret word.
+A modern reimagining of the classic game hangman! Save the Astronaut from the transportation beam! If you get stuck, click on the hint option for a quick hint of the secret word.
 
 ### Screenshot(s)
 
